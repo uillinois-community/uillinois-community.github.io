@@ -8,7 +8,7 @@ These resources may be other github orgs, repos, or gists; links to documentatio
 
 The repo consists of 3 components:
 
-- [Issue tracker](https://github.com/uillinois-community/issues)
+- [Issue tracker](https://github.com/uillinois-community/uillinois-community.github.io/issues)
 - [GitHub Pages page](index.html)
 - [Readme file](README.md)
 
