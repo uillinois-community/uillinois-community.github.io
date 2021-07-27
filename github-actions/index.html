@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>University of Illinois GitHub Service Community Portal: GitHub Actions</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="styleheet" href="/css/illinois-system.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>University of Illinois GitHub Service Community Portal - GitHub Actions</h1>
+    </div>
+  </header>
+  <main class="container">
+    <div class="jumbotron rounded-0">
+    <p><a href="https://docs.github.com/en/actions">GitHub Actions</a> allow you to run a series of actions on your code based on various triggers. This includes actions such as compiling the code or running unit tests, which are performed by a "<a href="https://github.com/actions/runner">runner</a>" system. This system can either on be a virtual environment on the GitHub infrastructure or a <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">locally hosted server</a>.</p>
+
+    <h2>Using a self-hosted runner</h2>
+    <p>The common reasons to run a self-hosted runner is that you might want to use GitHub Actions, but are on a network that is firewalled off, you have software that might be easier to configure ahead of time, or have security concerns about information being used by the GitHub infrastructure</p>
+    
+    <h2>Some tips</h2>
+    <ul>
+      <li>When developing GitHub Actions, you can make the logging and what's shown more verbose via by <a href="https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging">enabling different types of logging</a></li>
+      <li>You can find a lot of useful GitHub Actions at the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">GitHub Marketplace</a></li>
+      <li>Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows</li>
+      <li>If you want to create packages/artifacts or similar based off of actions is to have a step use a web tool like curl or a script to call the GitHub API and a GitHub secret that stores a Personal Access Token..</li>
+    </ul>
+      </div>
+  
+  </main>
+  <footer class="border-top my-3 pt-3">
+    <div class="container">
+      <img src="images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+        height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+    </div>
+
+  </footer>
+</body>
+
+</html>
