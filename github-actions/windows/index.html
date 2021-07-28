@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>University of Illinois GitHub Service Community Portal: GitHub Actions for Windows</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="styleheet" href="/css/illinois-system.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>University of Illinois GitHub Service Community Portal - GitHub Actions for Windows</h1>
+    </div>
+  </header>
+  <main class="container">
+    <div class="jumbotron rounded-0">
+      <p>There's a lot of information out there for integrating GitHub Actionand Azure and it's really good. But Azure may not be an option, or you may be converting over to Azure but slowly. This writeup has some examples of building and deploying a .Net on a windows runner and creating a zip file to deploy manually.</p>
+      
+      <h2>Some tips for Windows development and GitHub Actions</h2>
+    <ul>
+      <li>I've had mixed luck with more windows-centric GitHub Actions. Feel free to explore the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">Marketplace</a>, but you may find it easier to just call out to shell or powershell.</li>
+      <li>By following some error messages, I figured out the "install path", at least at the moment, (see either the <a href="examples/create-release-zip.yml">create-release-zip</a> or <a href="examples/build-and-test.yml">build-and-test</a> examples for more info on where this goes in the workflow yaml file).
+        <pre>
+          jobs:
+            build:
+              env:
+      msbuild-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin
+      vstest-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform
+        </pre>
+      </li>
+      <li>It seems at some point the default shell for the "run" set command changed from cmd to powershell. If you're reading older examples, it may need a "shelL: cmd" added to the step if you're seeing syntax errors. For example:
+        <pre>      - name: Restore Nuget Packages
+        run: "\"${{ env.msbuild-path }}\\MSBuild.exe\" -t:restore -p:RestorePackagesConfig=true -p:Configuration=Release ${{github.workspace }}\\exampleapp\\exampleapp.sln"
+        shell: cmd
+        </pre>
+      </li>
+      <li>A probably dangerous move, but if there's stuff you want to do to a github repository / team /etc based on triggers in github, you can install and use the <a href="https://github.com/microsoft/PowerShellForGitHub">PowerShellForGitHub Powershell</a> module and use a <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Access Token</a> (and probably <a href="https://docs.github.com/en/github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on">SSO "signing" it</a>) to have the runner kick off some commands via using a GitHub Secret. For more details, see the Powershll and Github section below</li>
+    </ul>
+    <h2>PowerShellForGitHub</h2>
+      <p>
+        The PowerShellForGitHub pages are pretty brief, but you can get a lot of information by using the Get-Help cmdlet.  For example:
+        <pre> Get-Help Set-GitHubAuthentication -ShowWindow </pre> or just examples like <pre> Get-Help Set-GitHubAuthentication -Examples </pre>
+      </p>
+      
+    </div>
+    
+  </main>
+  <footer class="border-top my-3 pt-3">
+    <div class="container">
+      <img src="images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+        height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+    </div>
+  </footer>
+</body>
+
+</html>
