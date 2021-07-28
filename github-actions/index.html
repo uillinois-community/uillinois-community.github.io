@@ -23,7 +23,7 @@
   </header>
   <main class="container">
     <div class="jumbotron rounded-0">
-    <p><a href="https://docs.github.com/en/actions">GitHub Actions</a> allow you to run a series of actions on your code based on various triggers. This includes actions such as compiling the code or running unit tests, which are performed by a "<a href="https://github.com/actions/runner">runner</a>" system. This system can either on be a virtual environment on the GitHub infrastructure or a <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">locally hosted server</a>.</p>
+    <p><a href="https://docs.github.com/en/actions">GitHub Actions</a> allow you to run a series of actions on your code based on various triggers. This includes actions such as compiling the code or running unit tests. The actions are performed by a "<a href="https://github.com/actions/runner">runner</a>" system. This system can either on be a virtual environment on the GitHub infrastructure or a <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">locally hosted server</a>.</p>
 
     <h2>Using a self-hosted runner</h2>
     <p>The common reasons to run a self-hosted runner is that you might want to use GitHub Actions, but are on a network that is firewalled off, you have software that might be easier to configure ahead of time, or have security concerns about information being used by the GitHub infrastructure</p>
@@ -34,9 +34,9 @@
       <li>When developing GitHub Actions, you can make the logging and what's shown more verbose via by <a href="https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging">enabling different types of logging</a></li>
       <li>You can find a lot of useful GitHub Actions at the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">GitHub Marketplace</a></li>
       <li>Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows</li>
-      <li>If you want to create packages/artifacts or similar based off of actions is to have a step use a web tool like curl or a script to call the GitHub API and a GitHub secret that stores a Personal Access Token..</li>
+      <li>Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the <a href="https://docs.github.com/en/rest">GitHub API</a>. If doing this, use a GitHub secret to store the Personal Access Token being used.</li>
       <li>Adding the trigger "workflow_dispatch" allows you to run the job on demand from the web interface. Useful when testing.</li>
-
+      <li>Using Windows?  There's more tips on the  <a href="windows/index.html">Windows-specific page</a>.</li>
     </ul>
 
     <h2>Some simple examples</h2>
