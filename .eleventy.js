@@ -5,6 +5,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("pdf");
+  eleventyConfig.addPassthroughCopy("yml");
 
   eleventyConfig.setTemplateFormats([
     "md",
