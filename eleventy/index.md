@@ -12,6 +12,11 @@ layout: layout.njk
 - `.nojekyll` tells GitHub that we are not using the Jekyll site generator.
 - `_includes/layout.njk` our first template file used by `11ty` to add the HTML header and footer to each page.
 
+## Setting up the GitHub Action
+
+We followed this [guide by Lea Tortay](https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/),
+and [this guide by Daniel Marino](https://iamdanielmarino.com/posts/deploying-my-eleventy-site-to-github-pages/).
+
 ## Testing Locally
 
 See [Eleventy usage][2] for more details.
