@@ -5,10 +5,9 @@ layout: layout.njk
 
 ## Some tips for Windows development and GitHub Actions
 
-<ul>
-<li>Be careful of calls that might end up needing user input!  For example, make sure to run installers in a quiet/no prompt mode. The runner will wait for user feedback that won't come.</li>
-<li>I've had mixed luck with more windows-centric GitHub Actions. Feel free to explore the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">Marketplace</a>, but you may find it easier to just call out to shell or powershell.</li>
-<li>By following some error messages, I figured out the "install path", at least at the moment, (see either the <a href="examples/create-release-zip.yml">create-release-zip</a> or <a href="examples/build-and-test.yml">build-and-test</a> examples for more info on where this goes in the workflow yaml file).
+- Be careful of calls that might end up needing user input!  For example, make sure to run installers in a quiet/no prompt mode. The runner will wait for user feedback that won't come.
+- I've had mixed luck with more windows-centric GitHub Actions. Feel free to explore the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">Marketplace</a>, but you may find it easier to just call out to shell or powershell.
+- By following some error messages, I figured out the "install path", at least at the moment, (see either the <a href="/examples/create-release-zip.yml">create-release-zip</a> or <a href="/examples/build-and-test.yml">build-and-test</a> examples for more info on where this goes in the workflow yaml file).
 
 ```yaml
   jobs:
