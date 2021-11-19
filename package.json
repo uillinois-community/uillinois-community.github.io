@@ -1,14 +1,12 @@
 {
-  "name": "edthedev.github.io",
+  "name": "uillinois-community.github.io/",
   "version": "1.0.0",
-  "description": "Source for edward.delaporte.us",
+  "description": "Source for https://uillinois-community.github.io/",
   "main": "index.js",
-  "repository": "git@github.com:edthedev/edthedev.github.io.git",
-  "author": "Edward Delaporte",
+  "repository": "git@github.com:uillinois-community/uillinois-community.github.io.git",
+  "author": "Members of the University of Illinois community",
   "license": "MIT",
-  "dependencies": {
-    "bootmark": "^0.8.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.3.2"
