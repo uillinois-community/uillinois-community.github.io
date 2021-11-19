@@ -1,0 +1,16 @@
+{
+  "name": "edthedev.github.io",
+  "version": "1.0.0",
+  "description": "Source for edward.delaporte.us",
+  "main": "index.js",
+  "repository": "git@github.com:edthedev/edthedev.github.io.git",
+  "author": "Edward Delaporte",
+  "license": "MIT",
+  "dependencies": {
+    "bootmark": "^0.8.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.3.2"
+  }
+}
