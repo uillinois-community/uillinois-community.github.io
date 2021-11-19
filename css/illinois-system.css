@@ -45,3 +45,11 @@
     background: #ddd;
     color: black;
 }
+
+/* Make Code Blocks stand out from page text. */
+pre {
+    background-color: lightgray;
+}
+code {
+    background-color: lightgray;
+}
