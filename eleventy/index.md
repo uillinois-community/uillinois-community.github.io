@@ -14,8 +14,11 @@ layout: layout.njk
 
 ## Setting up the GitHub Action
 
-We followed this [guide by Lea Tortay](https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/),
-and [this guide by Daniel Marino](https://iamdanielmarino.com/posts/deploying-my-eleventy-site-to-github-pages/).
+We followed these guides:
+
+- [11ty guide by Lea Tortay](https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/),
+- [GitHub pages deployment by Daniel Marino](https://iamdanielmarino.com/posts/deploying-my-eleventy-site-to-github-pages/)
+- [generating GitHub Deployment keys](https://github.com/marketplace/actions/github-pages-action#%EF%B8%8F-create-ssh-deploy-key)
 
 ## Testing Locally
 
