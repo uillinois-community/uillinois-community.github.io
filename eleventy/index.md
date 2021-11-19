@@ -1,8 +1,7 @@
 ---
-title: GitHub Pages with Eleventy - University of Illinois GitHub Service Community Portal
+title: GitHub Pages with Eleventy
+layout: layout.njk
 ---
-
-# GitHub Pages with Eleventy
 
 ## Essential Files
 

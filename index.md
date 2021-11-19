@@ -22,3 +22,4 @@ questions.
 ## Topics
 
 - [GitHub Actions](/github-actions/)
+- [Using Eleventy for GitHub Pages](/eleventy)
