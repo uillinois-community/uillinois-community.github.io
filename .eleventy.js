@@ -3,7 +3,7 @@ module.exports = eleventyConfig => {
 
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("pdf");
 
   eleventyConfig.setTemplateFormats([
