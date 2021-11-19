@@ -18,16 +18,16 @@ The common reasons to run a self-hosted runner is that you might want to use Git
     <li>Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows</li>
     <li>Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the <a href="https://docs.github.com/en/rest">GitHub API</a>. If doing this, use a GitHub secret to store the Personal Access Token being used.</li>
     <li>Adding the trigger "workflow_dispatch" allows you to run the job on demand from the web interface. Useful when testing.</li>
-    <li>Using Windows?  There's more tips on the  <a href="windows/index.html">Windows-specific page</a>.</li>
+    <li>Using Windows?  There's more tips on the  <a href="windows">Windows-specific page</a>.</li>
 </ul>
 
 ## Some simple examples
 
 ### Uses github provided windows runner to build a .Net web application and run test cases
 
-<a href="windows/examples/build-and-test.yml">Original file</a>
-<!-- TODO: Figure out some sort of way to better style yaml, or run yaml through some sort of html generation -->
-<pre>
+<a href="/examples/build-and-test.yml">Original file</a>
+
+```yaml
 name: build-and-test
 
 on:
@@ -57,15 +57,15 @@ jobs:
       - name: Test
         run: "\"${{ env.vstest-path }}\\vstest.console.exe\" /Platform:x64 ${{github.workspace }}\\exampleapp\\exampleappTests\\bin\\Debug\\exampleappTests.dll"
         shell: cmd
-    </pre>
+```
 
 
 ### Uses github provided windows runner to build a .Net application and calls PowerShell GitHub API library to upload a release zip of the binaries
 
-<a href="windows/examples/create-release-zip.yml">Original file</a>
+<a href="/examples/create-release-zip.yml">Original file</a>
 
-<pre>
 
+```yaml
 name: create-release-zip
 
 on:
@@ -128,4 +128,4 @@ jobs:
           Write-Output "::debug::$tag"
           $release_id = (Get-GitHubRelease -Tag $tag).ID
           New-GitHubReleaseAsset -Release $release_id -Path ${{ runner.temp }}\exampleapp.zip
-</pre>
+```

@@ -1,11 +1,11 @@
 module.exports = eleventyConfig => {
 
 
+  /* Folders to deploy unchanged. */
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("pdf");
-  eleventyConfig.addPassthroughCopy("yml");
+  eleventyConfig.addPassthroughCopy("examples"); 
 
   eleventyConfig.setTemplateFormats([
     "md",
