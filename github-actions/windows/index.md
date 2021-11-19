@@ -35,5 +35,11 @@ layout: layout.njk
 The PowerShellForGitHub pages are pretty brief, but you can get a lot of information by using the `Get-Help` cmdlet.  For example:
 
 ```powershell
-Get-Help Set-GitHubAuthentication -ShowWindow </pre> or just examples like <pre> Get-Help Set-GitHubAuthentication -Examples
+Get-Help Set-GitHubAuthentication -ShowWindow
+```
+
+or just examples like
+
+```powershell
+Get-Help Set-GitHubAuthentication -Examples
 ```
