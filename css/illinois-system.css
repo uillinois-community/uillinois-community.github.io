@@ -20,3 +20,11 @@
  * Salmon: #ee5e5e
  * Periwinkle: #4f6898
  */
+
+/* Make Code Blocks stand out from page text. */
+pre {
+    background-color: lightgray;
+}
+code {
+    background-color: lightgray;
+}
