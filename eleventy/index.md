@@ -20,6 +20,8 @@ We followed these guides:
 - [GitHub pages deployment by Daniel Marino](https://iamdanielmarino.com/posts/deploying-my-eleventy-site-to-github-pages/)
 - [generating GitHub Deployment keys](https://github.com/marketplace/actions/github-pages-action#%EF%B8%8F-create-ssh-deploy-key)
 
+Be sure to ensure that the `source` branch under `Settings/Pages` is set to `gh-pages`.
+
 ## Testing Locally
 
 See [Eleventy usage][2] for more details.
