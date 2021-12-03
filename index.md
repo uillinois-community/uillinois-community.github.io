@@ -23,3 +23,4 @@ questions.
 
 - [GitHub Actions](/github-actions/)
 - [Using Eleventy for GitHub Pages](/eleventy)
+- [GitHub Articles in the University of Illinois Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
