@@ -6,20 +6,20 @@ All contributors must follow the [Code of Conduct][1].
 
 ## Join the Community
 
-Users of the University of Illinois GitHub Service are encouraged to join the 
-conversations in the [Community Discussions][3].
+Users of the University of Illinois GitHub Service are encouraged to join the
+conversations in the [Community Discussions][2].
 
-[3]: https://github.com/uillinois-community/uillinois-community.github.io/discussions
+[2]: https://github.com/uillinois-community/uillinois-community.github.io/discussions
 
 ## Help Maintain this Site
 
 Collaboration on this repository updates the
- [University of Illinois GitHub Service Community Portal][4].
+ [University of Illinois GitHub Service Community Portal][3].
 
-[4]: https://uillinois-community.github.io/
+[3]: https://uillinois-community.github.io/
 
-Issues with these pages are discussed through [GitHub Issues][2].
-[2]: https://github.com/uillinois-community/uillinois-community.github.io/issues
+Issues with these pages are discussed through [GitHub Issues][4].
+[4]: https://github.com/uillinois-community/uillinois-community.github.io/issues
 
 See [GitHub Pages with Eleventy](/eleventy) for techincal details on updating
  these community pages.
