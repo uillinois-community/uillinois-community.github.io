@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: Resources - University of Illinois GitHub Service Community Portal
+title: Illinois Community GitHub Resources 
 ---
 
 ## Topics
