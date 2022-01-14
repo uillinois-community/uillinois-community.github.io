@@ -11,15 +11,34 @@ The common reasons to run a self-hosted runner is that you might want to use Git
 
 ## Some tips
 
-<ul>
-    <li>Workflows (series of jobs and steps/actions) go in .github/workflows</li>
-    <li>When developing GitHub Actions, you can make the logging and what's shown more verbose via by <a href="https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging">enabling different types of logging</a></li>
-    <li>You can find a lot of useful GitHub Actions at the <a href="https://github.com/marketplace?category=&query=&type=actions&verification=">GitHub Marketplace</a></li>
-    <li>Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows</li>
-    <li>Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the <a href="https://docs.github.com/en/rest">GitHub API</a>. If doing this, use a GitHub secret to store the Personal Access Token being used.</li>
-    <li>Adding the trigger "workflow_dispatch" allows you to run the job on demand from the web interface. Useful when testing.</li>
-    <li>Using Windows?  There's more tips on the  <a href="windows">Windows-specific page</a>.</li>
-</ul>
++ Workflows (series of jobs and steps/actions) go in .github/workflows
++ When developing GitHub Actions, you can make the logging and what's shown more verbose via by [enabling different types of logging][15].
++ You can find a lot of useful GitHub Actions at the [GitHub Marketplace][16].
++ Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows
++ Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the [GitHub API][18]. If doing this, use a GitHub secret to store the Personal Access Token being used.
++ Adding the trigger "workflow_dispatch" allows you to run the job on demand from the web interface. Useful when testing.
++ Using Windows?  There's more tips on the [Windows-specific page](/github-actions/windows/).
+
+[15]: https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging
+[16]: https://github.com/marketplace?category=&query=&type=actions&verification=
+[18]: https://docs.github.com/en/rest
+
+## Popular Actions
+
+These are actions that community members have reported finding useful.
+
+Know a GitHub Action other community members would love?  
+[Make a suggestion][27]!
+
+[27]: https://github.com/uillinois-community/uillinois-community.github.io/issues/new
+
++ [create-issue-branch][31] - Create a branch when an issue is assigned.
++ [pr-reviews-reminder-action][32] - Remind MS Teams or Slack users that a pull
+  request is waiting for their review.
+
+[31]:  https://github.com/marketplace/actions/create-issue-branch
+[32]: https://github.com/DavideViolante/pr-reviews-reminder-action
+
 
 ## Some simple examples
 
