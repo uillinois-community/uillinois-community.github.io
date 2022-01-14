@@ -6,7 +6,6 @@
   "repository": "git@github.com:uillinois-community/uillinois-community.github.io.git",
   "author": "Members of the University of Illinois community",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.3.2"

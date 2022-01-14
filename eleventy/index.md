@@ -31,7 +31,7 @@ See [Eleventy usage][2] for more details.
 1. Setup eleventy locally
 
 ```sh
-npm install -g @11ty/eleventy
+npm install @11ty/eleventy
 ```
 
 1. Serve the site locally to your local brower.
