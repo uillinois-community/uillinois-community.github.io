@@ -7,6 +7,9 @@ title: Illinois Community GitHub Resources
 
 - [GitHub Actions](/github-actions/)
 - [Using Eleventy for GitHub Pages](/eleventy)
+- [Using SSH Keys in an SSO Enabled Organization][1]
+
+[1]: https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 
 ## Additional Resources
 
