@@ -28,3 +28,7 @@ pre {
 code {
     background-color: lightgray;
 }
+.btn {
+     color: #fff;
+     background-color: #003366; /* UIS Blue, and passes contrast check. */
+}
