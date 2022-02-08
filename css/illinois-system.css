@@ -32,3 +32,10 @@ code {
      color: #fff;
      background-color: #003366; /* UIS Blue, and passes contrast check. */
 }
+.breadcrumb {
+    background-color: #4d69a0;
+    border-radius: 0em;
+}
+.breadcrumb-item a {
+    color: #fff;
+}
