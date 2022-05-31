@@ -41,3 +41,19 @@ npx @11ty/eleventy --serve
 ```
 
 1. Note that the site rebuilds via GitHub action automatically when a branch is merged.
+
+## Resolving GitHub Dependabot Alerts
+
+Use the `npm update` and `npm audit` commands to update any JavaScript libraries
+that `11ty` depends on.
+
+```shell
+npm update
+npm audit fix
+```
+
+This recipe should result in updates to `package-lock.json` and `package.json`,
+which should be checked into `git` and merge to the `main` branch.
+
+> It may be necessary to use `npm audit fix --force`. If so, be sure to double
+> check that the pages still render correctly.
