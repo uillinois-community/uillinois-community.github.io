@@ -3,12 +3,15 @@ layout: layout.njk
 title: University of Illinois GitHub Service Community Portal
 ---
 
-Community-supported documentation for the University of Illinois GitHub service, designed to fill the gap
-between AITS' service-level documentation and 1-on-1 training by providing a searchable archive of community questions
-        and resources.
+Community-supported documentation for the [University of Illinois GitHub
+service][10], designed to fill the gap between AITS' service-level documentation
+and 1-on-1 training by providing a searchable archive of community
+questions and resources.
 
-These resources may be other github orgs, repos, or gists; links to documentation; or simply answers to
-questions.
+[10]: https://web.uillinois.edu/github
+
+These resources may be other github orgs, repos, or gists; links to
+documentation; or simply answers to questions.
 
 <!-- Leaving this as HTML for now. -->
 <p class="mt-5 d-flex flex-row">
