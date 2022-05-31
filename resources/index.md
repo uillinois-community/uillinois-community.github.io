@@ -5,6 +5,7 @@ title: Illinois Community GitHub Resources
 
 ## Topics
 
+- [Software Carpentry Lessons for a Git Novice](https://swcarpentry.github.io/git-novice/)
 - [GitHub Actions](/github-actions/)
 - [Using Eleventy for GitHub Pages](/eleventy)
 - [Using SSH Keys in an SSO Enabled Organization][1]
