@@ -12,9 +12,9 @@ implementation.
 
 There are at least three approaches for authenticating against GitHub, ordered here from easiest to hardest to implement:
 
-- [#apps](Use an application that manages the Personal Access Token for you (GitHub Desktop))
-- [#ssh](Authenticate with an ssh key instead of a password)
-- [#token](Authenticate with a Personal Access Token instead of a password)
+- [Use an application that manages the Personal Access Token for you (GitHub Desktop)](#apps)
+- [Authenticate with an ssh key instead of a password](#ssh)
+- [Authenticate with a Personal Access Token instead of a password](#token)
 
 <h3 id="apps">Use an application that manages the Personal Access Token for you (GitHub Desktop)</h3>
 
