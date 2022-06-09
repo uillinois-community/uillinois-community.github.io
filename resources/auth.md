@@ -12,11 +12,11 @@ implementation.
 
 There are at least three approaches for authenticating against GitHub, ordered here from easiest to hardest to implement:
 
-- Use an application that manages the Personal Access Token for you (GitHub Desktop)
-- Authenticate with an ssh key instead of a password
-- Authenticate with a Personal Access Token instead of a password
+- [#apps](Use an application that manages the Personal Access Token for you (GitHub Desktop))
+- [#ssh](Authenticate with an ssh key instead of a password)
+- [#token](Authenticate with a Personal Access Token instead of a password)
 
-### Use an application that manages the Personal Access Token for you (GitHub Desktop)
+<h3 id="apps">Use an application that manages the Personal Access Token for you (GitHub Desktop)</h3>
 
 Coming from using a password to authenticate with git to the current GitHub environment, the easiest method is to use a git client that automatically requests, stores, and uses the tokens for you. This is transparent to the user because everything is managed by the git client and its tools.
 
@@ -24,7 +24,7 @@ Coming from using a password to authenticate with git to the current GitHub envi
 
 GitHub includes other tools, like the GitHub CLI and Git Credential Manager that can be used to also store and use GitHub credentials. See [Caching your GitHub credentials in Git](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git) for more info.
 
-### Authenticate with an ssh key instead of a password
+<h3 id="ssh">Authenticate with an ssh key instead of a password</h3>
 
 GitHub can be configured to use secure shell (SSH) for connecting to repositories and access. This typically involves creating a SSH public and private key pair and configuring your ssh environment to use that key with github.com, associating the SSH public key in your GitHub account, and configuring git to use ssh links as your GitHub `git remote` configurations.
 
@@ -35,8 +35,7 @@ See the [GitHub documentation for connecting with ssh](https://docs.github.com/e
 SSH keys created to authenticate against Illinois associated GitHub organzations need to be authorized to use with SSO. See the [GitHub documentation for authorizing an SSH key for use with SAML Single Sign On](
 https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
 
-
-### Authenticate with a Personal Access Token
+<h3 id="token">Authenticate with a Personal Access Token</h3>
 
 Authenticating with a GitHub Personal Access Token (PAT) means logging into the https://github.com website, going into your profile, and creating a token.
 
