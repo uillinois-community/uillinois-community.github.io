@@ -2,6 +2,7 @@
 layout: layout.njk
 title: Illinois Community GitHub Authentication Help
 ---
+[Back to Resources](..)
 
 ## Authenticating to GitHub
 
