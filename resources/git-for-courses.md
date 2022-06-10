@@ -15,8 +15,8 @@ The https://github.com/uillinois-community/gitForCourses repository has informat
 
 Many Illinois courses are using an in-house developed web app to allow students to create their own repositories in a course organization. We call this the "repo creator tool" and it's been ported from github-dev.cs.illinois.edu to also work with github.com
 
-See https://wiki.illinois.edu/wiki/display/CSID/GitHub+repo+creator+tool for more info about this app.
-* The wiki may require an active VPN session to access (as of 6/10/22) and requires an Illinois login (but is available to all)
+See the [GitHub repo creator tool page in the CSID wiki](https://wiki.illinois.edu/wiki/display/CSID/GitHub+repo+creator+tool) for more info about this app.
+* The Illini wiki may require an active VPN session to access (as of 6/10/22) and requires an Illinois login (but is available to all)
 
 ## Things that are different about GitHub versus the previous github-dev.cs.illinois.edu server
 
