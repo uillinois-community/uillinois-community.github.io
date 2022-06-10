@@ -4,6 +4,27 @@ title: Illinois Community GitHub Authentication Help
 ---
 [Back to Resources](..)
 
+In this guide:
+* [GitHub usernames and Illinois NetIDs](#github-usernames-and-illinois-netids)
+* [Authenticating to GitHub](#authenticating-to-github)
+
+## GitHub usernames and Illinois NetIDs
+
+The Illinois GitHub service is not a separate server: it uses the same [github.com](https://github.com) as the rest of the Internet. You must create a GitHub username to use the service. The free account creation options are linked off the https://github.com homepage.
+* You could create a new GitHub account specific to Illinois work, or use a pre-existing GitHub personal account.
+    * If you can manage different projects in the same username, fewer GitHub accounts is likely easier.
+    * The email you associate with the GitHub account **does not** need to be connected to Illinois.
+
+GitHub secures Illinois-based organization access with the Illinois Single Sign On (SSO) where you are prompted for your NetID and NetID password. You'll see this second prompt if you're visiting an Illinois GitHub organization via the github.com website. In this way, Illinois authentication is more of a [two-factor authentication](https://authy.com/what-is-2fa/) where the GitHub authentication happens first, and then the Illinois authentication happens on top.
+* Single Sign On may not prompt you every time if the previous authentication is still valid. There will be an authentication prompt for each different Illinois protected organization.
+* Single Sign On may, on the first attempt, prompt the user to acknowledge they are using the GitHub terms of service. This was required by the CIO's Privacy Office.
+* Access methods to GitHub that aren't the website (like git clients) will require going to the GitHub website (and Illinois authenticating) to 'bless' the SSH key or Personal Access Token to be usable with Illinois protected organizations. See below for more info.
+
+All GitHub activity is tracked with the Github username. There are ways in the GitHub website (and programatically via API) where organization owners can see the mapping of GitHub username to Illinois NetID.
+
+
+
+
 ## Authenticating to GitHub
 
 As of August 2021, GitHub no longer allows direct password authentication via git clients. See their
