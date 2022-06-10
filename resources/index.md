@@ -6,6 +6,7 @@ title: Illinois Community GitHub Resources
 ## Topics
 
 - [Authenticating to GitHub](/resources/auth/)
+- [Using git for courses](/resources/git-for-courses/)
 - [GitHub Actions](/github-actions/)
 - [Illinois Media Space Videos with the keyword Git](https://mediaspace.illinois.edu/esearch/search?keyword=git)
 - [Software Carpentry Lessons for a Git Novice](https://swcarpentry.github.io/git-novice/)
