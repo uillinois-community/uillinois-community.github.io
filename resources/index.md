@@ -15,8 +15,9 @@ title: Illinois Community GitHub Resources
 
 [1]: https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 
-## Additional Resources
+## Additional University of Illinois GitHub Resources
 
+- [GitHub Articles in the System Offices Knowledge Base](https://answers.uillinois.edu/systemoffices/search.php?q=github)
+- [GitHub Articles in the Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
 - [Downloads - Office of Strategic Marketing and Branding](https://marketing.illinois.edu/tools/downloads)
-- [GitHub Articles in the University of Illinois Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
-- [University of Illinois GitHub Community Repositories](https://github.com/uillinois-community)
+- [University GitHub Community Repositories](https://github.com/uillinois-community)
