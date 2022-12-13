@@ -20,4 +20,5 @@ title: Illinois Community GitHub Resources
 - [GitHub Articles in the System Offices Knowledge Base](https://answers.uillinois.edu/systemoffices/search.php?q=github)
 - [GitHub Articles in the Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
 - [Downloads - Office of Strategic Marketing and Branding](https://marketing.illinois.edu/tools/downloads)
+- [Web Accessibility Evaluation Tools](https://accessibleit.disability.illinois.edu/tools/overview/)
 - [University GitHub Community Repositories](https://github.com/uillinois-community)
