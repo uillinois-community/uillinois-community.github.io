@@ -18,7 +18,7 @@ title: Illinois Community GitHub Resources
 ## Additional University of Illinois GitHub Resources
 
 - [GitHub Articles in the System Offices Knowledge Base](https://answers.uillinois.edu/systemoffices/search.php?q=github)
-- [GitHub Articles in the Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
+- [GitHub Articles in the Technology Services Knowledge Base](https://answers.uillinois.edu/illinois/search.php?q=GitHub)
 - [University of Illinois GitHub Service Portal Repositories](https://github.com/uillinois-community)
 - [Illinois Open Source Software on github.com](https://illinois.github.io)
 
