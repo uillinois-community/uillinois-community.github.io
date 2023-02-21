@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: Illinois Community GitHub Resources
+title: Illinois Community Resources for Git Users
 ---
 
 ## Topics
