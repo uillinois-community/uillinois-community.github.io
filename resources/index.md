@@ -24,5 +24,6 @@ title: Illinois Community Resources for Git Users
 
 ## Additional University of Illinois Software Development Resources
 
+- [Illinois Web Theme](https://webtheme.illinois.edu/)
 - [Downloads - Office of Strategic Marketing and Branding](https://marketing.illinois.edu/tools/downloads)
 - [Web Accessibility Evaluation Tools](https://accessibleit.disability.illinois.edu/tools/overview/)
