@@ -1,0 +1,22 @@
+
+name: Test site is live
+
+on: 
+  push:
+    branches:
+      - main
+      
+jobs:
+  robot_test:
+    runs-on: ubuntu-latest
+    name: Run Robot Framework Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
+        with:
+          browser: 'chrome'
+          robot_tests_dir: tests/robot
+          robot_reports_dir: tests/robot/reports
+          robot_runner_image: ppodgorsek/robot-framework@5.0.0
