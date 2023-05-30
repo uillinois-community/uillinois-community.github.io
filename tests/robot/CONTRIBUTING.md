@@ -6,5 +6,5 @@ To run the robot tests in `Docker`:
 
 git clone git@github.com:uillinois-community/uillinois-community.github.io.git
 cd uillinois-community.github.io/tests
-docker run -v ${PWD}/tests/reports:/opt/robotframework/reports:Z -v ${PWD}/tests:/opt/robotframework/tests:Z ppodgorsek/robot-framework:latest
+docker run -v ${PWD}/tests/robot/reports:/opt/robotframework/reports:Z -v ${PWD}/tests/robot:/opt/robotframework/tests:Z ppodgorsek/robot-framework:latest
 ```

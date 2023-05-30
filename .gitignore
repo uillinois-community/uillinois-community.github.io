@@ -2,3 +2,5 @@ _site
 gh-pages
 gh-pages.pub
 node_modules
+# Ignore RobotFramework test run output
+tests/robot/reports     
