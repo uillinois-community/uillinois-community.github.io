@@ -1,0 +1,6 @@
+<p>To run the robot tests in <code>Docker</code>:</p>
+<pre><code class="language-sh">
+git clone git@github.com:uillinois-community/uillinois-community.github.io.git
+cd uillinois-community.github.io
+docker run -v ${PWD}/tests/robot/reports:/opt/robotframework/reports:Z -v ${PWD}/tests/robot:/opt/robotframework/tests:Z ppodgorsek/robot-framework:latest
+</code></pre>

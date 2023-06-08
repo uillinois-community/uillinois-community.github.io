@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>GitHub Pages with Eleventy - University of Illinois GitHub Service Community Portal</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/css/illinois-system.css" />
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+<body>
+
+<!-- TODO: Convert this back into a Breadcrumb solution with aria active for current page -->
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">University of Illinois GitHub Service Community Portal</a></li>
+  </ol>
+</nav>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>GitHub Pages with Eleventy</h1>
+    </div>
+  </header>
+
+<!-- Main Content -->
+<main class="container content" role="main">
+<h2>Essential Files</h2>
+<ul>
+<li><code>.github/workflows/eleventy.yml</code> a GitHub Action that converts the Markdown files in this repository into an HTML site checked into the <code>gh-pages</code> branch.</li>
+<li><code>package.json</code> tells our GitHub Action how to setup our site generator <code>eleventy/11ty</code>.</li>
+<li><code>.eleventy.js</code> configures the <code>11ty</code> site generator.</li>
+<li><code>.eleventyignore</code> tells <code>11ty</code> files to not use when building the HTML site.</li>
+<li><code>.nojekyll</code> tells GitHub that we are not using the Jekyll site generator.</li>
+<li><code>_includes/layout.njk</code> our first template file used by <code>11ty</code> to add the HTML header and footer to each page.</li>
+</ul>
+<h2>Setting up the GitHub Action</h2>
+<p>We followed these guides:</p>
+<ul>
+<li><a href="https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/">11ty guide by Lea Tortay</a>,</li>
+<li><a href="https://iamdanielmarino.com/posts/deploying-my-eleventy-site-to-github-pages/">GitHub pages deployment by Daniel Marino</a></li>
+<li><a href="https://github.com/marketplace/actions/github-pages-action#%EF%B8%8F-create-ssh-deploy-key">generating GitHub Deployment keys</a></li>
+</ul>
+<p>Be sure to ensure that the <code>source</code> branch under <code>Settings/Pages</code> is set to <code>gh-pages</code>.</p>
+<h2>Testing Locally</h2>
+<p>See <a href="https://www.11ty.dev/docs/usage/">Eleventy usage</a> for more details.</p>
+<ol>
+<li>Setup eleventy locally</li>
+</ol>
+<pre><code class="language-sh">npm install @11ty/eleventy
+</code></pre>
+<ol>
+<li>Serve the site locally to your local brower.</li>
+</ol>
+<pre><code class="language-sh">npx @11ty/eleventy --serve
+</code></pre>
+<ol>
+<li>Note that the site rebuilds via GitHub action automatically when a branch is merged.</li>
+</ol>
+<h2>Resolving GitHub Dependabot Alerts</h2>
+<p>Use the <code>npm update</code> and <code>npm audit</code> commands to update any JavaScript libraries
+that <code>11ty</code> depends on.</p>
+<pre><code class="language-shell">npm update
+npm audit fix
+</code></pre>
+<p>This recipe should result in updates to <code>package-lock.json</code> and <code>package.json</code>,
+which should be checked into <code>git</code> and merge to the <code>main</code> branch.</p>
+<blockquote>
+<p>It may be necessary to use <code>npm audit fix --force</code>. If so, be sure to double
+check that the pages still render correctly.</p>
+</blockquote>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-top my-3 pt-3">
+  <div class="container" role="contentinfo">
+    <img src="/images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+      height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+  </div>
+</footer>
+
+</html>

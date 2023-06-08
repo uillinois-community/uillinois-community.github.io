@@ -1,0 +1,104 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Illinois Community GitHub Authentication Help - University of Illinois GitHub Service Community Portal</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/css/illinois-system.css" />
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+<body>
+
+<!-- TODO: Convert this back into a Breadcrumb solution with aria active for current page -->
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">University of Illinois GitHub Service Community Portal</a></li>
+  </ol>
+</nav>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>Illinois Community GitHub Authentication Help</h1>
+    </div>
+  </header>
+
+<!-- Main Content -->
+<main class="container content" role="main">
+<p><a href="..">Back to Resources</a></p>
+<p>In this guide:</p>
+<ul>
+<li><a href="#github-usernames-and-illinois-netids">GitHub usernames and Illinois NetIDs</a></li>
+<li><a href="#authenticating-to-github">Authenticating to GitHub</a></li>
+</ul>
+<h2>GitHub usernames and Illinois NetIDs</h2>
+<p>The Illinois GitHub service is not a separate server: it uses the same <a href="https://github.com">github.com</a> as the rest of the Internet. You must create a GitHub username to use the service. The free account creation options are linked off the https://github.com homepage.</p>
+<ul>
+<li>You could create a new GitHub account specific to Illinois work, or use a pre-existing GitHub personal account.
+<ul>
+<li>If you can manage different projects in the same username, fewer GitHub accounts is likely easier.</li>
+<li>The email you associate with the GitHub account <strong>does not</strong> need to be connected to Illinois.</li>
+</ul>
+</li>
+</ul>
+<p>GitHub secures Illinois-based organization access with the Illinois Single Sign On (SSO) where you are prompted for your NetID and NetID password. You'll see this second prompt if you're visiting an Illinois GitHub organization via the github.com website. In this way, Illinois authentication is more of a <a href="https://authy.com/what-is-2fa/">two-factor authentication</a> where the GitHub authentication happens first, and then the Illinois authentication happens on top.</p>
+<ul>
+<li>Single Sign On may not prompt you every time if the previous authentication is still valid. There will be an authentication prompt for each different Illinois protected organization.</li>
+<li>Single Sign On may, on the first attempt, prompt the user to acknowledge they are using the GitHub terms of service. This was required by the CIO's Privacy Office.</li>
+<li>Access methods to GitHub that aren't the website (like git clients) will require going to the GitHub website (and Illinois authenticating) to 'bless' the SSH key or Personal Access Token to be usable with Illinois protected organizations. See below for more info.</li>
+</ul>
+<p>All GitHub activity is tracked with the Github username. There are ways in the GitHub website (and programatically via API) where organization owners can see the mapping of GitHub username to Illinois NetID.</p>
+<h2>Authenticating to GitHub</h2>
+<p>As of August 2021, GitHub no longer allows direct password authentication via git clients. See their
+<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">2020 blog post</a>
+for more background. This is a GitHub decision and is site-wide; it's not specific to Illinois or our
+implementation.</p>
+<p>There are at least three approaches for authenticating against GitHub, ordered here from easiest to hardest to implement:</p>
+<ul>
+<li><a href="#apps">Use an application that manages the Personal Access Token for you (GitHub Desktop)</a></li>
+<li><a href="#ssh">Authenticate with an ssh key instead of a password</a></li>
+<li><a href="#token">Authenticate with a Personal Access Token instead of a password</a></li>
+</ul>
+<h3 id="apps">Use an application that manages the Personal Access Token for you (GitHub Desktop)</h3>
+<p>Coming from using a password to authenticate with git to the current GitHub environment, the easiest method is to use a git client that automatically requests, stores, and uses the tokens for you. This is transparent to the user because everything is managed by the git client and its tools.</p>
+<p><a href="https://desktop.github.com">GitHub Desktop</a> is an example of a graphical and command line git client that handles the authentication for you. That is, it prompts you for the GitHub password (or routes to web authentication) where needed and stores the tokens for future use. <a href="https://docs.github.com/en/desktop">GitHub Desktop docs</a></p>
+<p>GitHub includes other tools, like the GitHub CLI and Git Credential Manager that can be used to also store and use GitHub credentials. See <a href="https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git">Caching your GitHub credentials in Git</a> for more info.</p>
+<h3 id="ssh">Authenticate with an ssh key instead of a password</h3>
+<p>GitHub can be configured to use secure shell (SSH) for connecting to repositories and access. This typically involves creating a SSH public and private key pair and configuring your ssh environment to use that key with github.com, associating the SSH public key in your GitHub account, and configuring git to use ssh links as your GitHub <code>git remote</code> configurations.</p>
+<p>Note that creating the ssh key and associating it with your ssh environment is not necessarily a GitHub activity. It's SSH configuration in your applications or computer and GitHub can be configured to use it. This is a traditional model of caching login credentials to use with GitHub before the Personal Access Tokens and GitHub specific credential managers were made.</p>
+<p>See the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">GitHub documentation for connecting with ssh</a></p>
+<p>SSH keys created to authenticate against Illinois associated GitHub organzations need to be authorized to use with SSO. See the <a href="https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on">GitHub documentation for authorizing an SSH key for use with SAML Single Sign On</a></p>
+<h3 id="token">Authenticate with a Personal Access Token</h3>
+<p>Authenticating with a GitHub Personal Access Token (PAT) means logging into the https://github.com website, going into your profile, and creating a token.</p>
+<p>See <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating a Personal Access Token</a> on the GitHub Docs site for more instructions.</p>
+<p>When you create the token, be mindful of these points:</p>
+<ul>
+<li>The default expiry of tokens is 30 days. If you don't want to do this process again in a month, set the expiration at creation to be longer or select &quot;No expiration&quot;</li>
+<li>A scope of <strong>repo</strong> should be sufficient for most git client activities.</li>
+<li>Copy the token and store it somewhere secure since you will on be able to view it immediately after creation.</li>
+<li>Since you'll be using this with an Illinois secured organization, you will need to authorize the Personal Access Token to be used with each organization. You can do this from the <strong>Configure SSO</strong> dropdown in the <a href="https://github.com/settings/tokens">Personal Access Tokens page</a>.
+<ul>
+<li>If you do not see the organization listed, make sure you have joined the organization first. Then return to the page and you should see it in the list.</li>
+</ul>
+</li>
+</ul>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-top my-3 pt-3">
+  <div class="container" role="contentinfo">
+    <img src="/images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+      height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+  </div>
+</footer>
+
+</html>

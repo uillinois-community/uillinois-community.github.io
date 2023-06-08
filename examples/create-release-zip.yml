@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+
+name: create-release-zip
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    env:
+      msbuild-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin
+      vstest-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform
+
+    
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Restore Nuget Packages
+        run: "\"${{ env.msbuild-path }}\\MSBuild.exe\" -t:restore -p:RestorePackagesConfig=true -p:Configuration=Release ${{github.workspace }}\\exampleapp\\exampleapp.sln"
+        shell: cmd
+
+      - name: Build website
+        run: "\"${{ env.msbuild-path }}\\MSBuild.exe\" -p:Configuration=Release ${{github.workspace }}\\exampleapp\\exampleapp.sln"
+        shell: cmd
+        
+      - name: Test
+        run: "\"${{ env.vstest-path }}\\vstest.console.exe\" /Platform:x64 ${{github.workspace }}\\exampleapp\\exampleappTests\\bin\\Release\\exampleappTests.dll"
+        shell: cmd
+
+      - name: Build and deploy to directory 
+        shell: cmd
+        run: "\"${{ env.msbuild-path }}\\MSBuild.exe\" -p:Configuration=Release -p:PublishProfile=PubForZip -p:DeployOnBuild=true ${{github.workspace }}\\exampleapp\\exampleapp\\exampleapp.csproj"
+
+
+      - name: Debug file path issue
+        run: |
+          $exampleapps_dlls = (Get-ChildItem -Path ${{ github.workspace }} -Recurse -force -ErrorAction SilentlyContinue -Include 'exampleapp.dll' )
+          foreach( $dll in $exampleapp_dlls) { Write-Output ("::debug::DLL found at" + $dll.FullName) }
+          $web_configs = (Get-ChildItem -Path ${{ github.workspace }} -Recurse -force -ErrorAction SilentlyContinue -Include 'web.config' )
+          foreach( $config in $web_configs) { Write-Output ("::debug::Web config found at " + $config.FullName) }
+
+      - name: Compress Release directory
+        run: Compress-Archive -Path ${{github.workspace }}\exampleapp\exampleapp\bin\app.publish\* -DestinationPath ${{ runner.temp }}\exampleapp.zip
+      
+      - name: Install PowerShellForGitHub
+        run: Install-Module -Name PowerShellForGitHub -Scope CurrentUser  -Repository PSGallery -Force
+
+      - name: Add zip to release download
+        run: |
+          Set-GitHubConfiguration -SessionOnly -DefaultOwnerName UIUCLibrary
+          Set-GitHubConfiguration -SessionOnly -DefaultRepositoryName winshib-exampleapp
+          $secureString = ("${{ secrets.IMS_GITHUB_PAT }}" | ConvertTo-SecureString -AsPlainText -Force)
+          $cred = New-Object System.Management.Automation.PSCredential "username is ignored", $secureString
+          Set-GitHubAuthentication -Credential $cred -SessionOnly
+          $secureString = $null # clear this out now that it's no longer needed
+          $cred = $null # clear this out now that it's no longer needed
+          $tag = "${{github.ref}}".Substring(10)
+          Write-Output "::debug::$tag"
+          $release_id = (Get-GitHubRelease -Tag $tag).ID
+          New-GitHubReleaseAsset -Release $release_id -Path ${{ runner.temp }}\exampleapp.zip
