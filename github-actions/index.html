@@ -1,0 +1,168 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>GitHub Actions - University of Illinois GitHub Service Community Portal</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/css/illinois-system.css" />
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+<body>
+
+<!-- TODO: Convert this back into a Breadcrumb solution with aria active for current page -->
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">University of Illinois GitHub Service Community Portal</a></li>
+  </ol>
+</nav>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>GitHub Actions</h1>
+    </div>
+  </header>
+
+<!-- Main Content -->
+<main class="container content" role="main">
+<p><a href="https://docs.github.com/en/actions">GitHub Actions</a> allow you to run a series of actions on your code based on various triggers. This includes actions such as compiling the code or running unit tests. The actions are performed by a "<a href="https://github.com/actions/runner">runner</a>" system. This system can either on be a virtual environment on the GitHub infrastructure or a <a href="https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners">locally hosted server</a>.</p>
+<h2>Using a self-hosted runner</h2>
+<p>The common reasons to run a self-hosted runner is that you might want to use GitHub Actions, but are on a network that is firewalled off, you have software that might be easier to configure ahead of time, or have security concerns about information being used by the GitHub infrastructure.</p>
+<h2>Some tips</h2>
+<ul>
+<li>Workflows (series of jobs and steps/actions) go in .github/workflows</li>
+<li>When developing GitHub Actions, you can make the logging and what's shown more verbose via by <a href="https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging">enabling different types of logging</a>.</li>
+<li>You can find a lot of useful GitHub Actions at the <a href="https://github.com/marketplace?category=&amp;query=&amp;type=actions&amp;verification=">GitHub Marketplace</a>.</li>
+<li>Some actions, triggers, and steps will only affect the default branch, which can make testing a bit hard. You might want to fork a project while you're experimenting with workflows</li>
+<li>Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the <a href="https://docs.github.com/en/rest">GitHub API</a>. If doing this, use a GitHub secret to store the Personal Access Token being used.</li>
+<li>Adding the trigger &quot;workflow_dispatch&quot; allows you to run the job on demand from the web interface. Useful when testing.</li>
+<li>Using Windows?  There's more tips on the <a href="/github-actions/windows/">Windows-specific page</a>.</li>
+<li><a href="https://answers.illinois.edu/search.php?q=github+actions">Search for 'GitHub Actions' on the University of Illinois Knowledge Base</a></li>
+</ul>
+<h2>Popular Actions</h2>
+<p>These are actions that community members have reported finding useful.</p>
+<p>Know a GitHub Action other community members would love?<br>
+<a href="https://github.com/uillinois-community/uillinois-community.github.io/issues/new">Make a suggestion</a>!</p>
+<ul>
+<li><a href="https://github.com/marketplace/actions/create-issue-branch">create-issue-branch</a> - Create a branch when an issue is assigned.</li>
+<li><a href="https://github.com/DavideViolante/pr-reviews-reminder-action">pr-reviews-reminder-action</a> - Remind MS Teams or Slack users that a pull
+request is waiting for their review.</li>
+</ul>
+<h2>Some simple examples</h2>
+<h3>Uses github provided windows runner to build a .Net web application and run test cases</h3>
+<p><a href="/examples/build-and-test.yml">Original file</a></p>
+<pre><code class="language-yaml">name: build-and-test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    env:
+      msbuild-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin
+      vstest-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform
+
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Restore Nuget Packages
+        run: &quot;\&quot;$\\MSBuild.exe\&quot; -t:restore -p:RestorePackagesConfig=true $\\exampleapp\\exampleapp.sln&quot;
+        shell: cmd
+
+      - name: Build website
+        run: &quot;\&quot;$\\MSBuild.exe\&quot; $\\exampleapp\\exampleapp.sln&quot;
+        shell: cmd
+
+      - name: Test
+        run: &quot;\&quot;$\\vstest.console.exe\&quot; /Platform:x64 $\\exampleapp\\exampleappTests\\bin\\Debug\\exampleappTests.dll&quot;
+        shell: cmd
+</code></pre>
+<h3>Uses github provided windows runner to build a .Net application and calls PowerShell GitHub API library to upload a release zip of the binaries</h3>
+<p><a href="/examples/create-release-zip.yml">Original file</a></p>
+<pre><code class="language-yaml">name: create-release-zip
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    env:
+      msbuild-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin
+      vstest-path: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform
+
+
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Restore Nuget Packages
+        run: &quot;\&quot;$\\MSBuild.exe\&quot; -t:restore -p:RestorePackagesConfig=true -p:Configuration=Release $\\exampleapp\\exampleapp.sln&quot;
+        shell: cmd
+
+      - name: Build website
+        run: &quot;\&quot;$\\MSBuild.exe\&quot; -p:Configuration=Release $\\exampleapp\\exampleapp.sln&quot;
+        shell: cmd
+
+      - name: Test
+        run: &quot;\&quot;$\\vstest.console.exe\&quot; /Platform:x64 $\\exampleapp\\exampleappTests\\bin\\Release\\exampleappTests.dll&quot;
+        shell: cmd
+
+      - name: Build and deploy to directory
+        shell: cmd
+        run: &quot;\&quot;$\\MSBuild.exe\&quot; -p:Configuration=Release -p:PublishProfile=PubForZip -p:DeployOnBuild=true $\\exampleapp\\exampleapp\\exampleapp.csproj&quot;
+
+
+      - name: Debug file path issue
+        run: |
+          $exampleapps_dlls = (Get-ChildItem -Path $ -Recurse -force -ErrorAction SilentlyContinue -Include 'exampleapp.dll' )
+          foreach( $dll in $exampleapp_dlls) { Write-Output (&quot;::debug::DLL found at&quot; + $dll.FullName) }
+          $web_configs = (Get-ChildItem -Path $ -Recurse -force -ErrorAction SilentlyContinue -Include 'web.config' )
+          foreach( $config in $web_configs) { Write-Output (&quot;::debug::Web config found at &quot; + $config.FullName) }
+
+      - name: Compress Release directory
+        run: Compress-Archive -Path $\exampleapp\exampleapp\bin\app.publish\* -DestinationPath $\exampleapp.zip
+
+      - name: Install PowerShellForGitHub
+        run: Install-Module -Name PowerShellForGitHub -Scope CurrentUser  -Repository PSGallery -Force
+
+      - name: Add zip to release download
+        run: |
+          Set-GitHubConfiguration -SessionOnly -DefaultOwnerName UIUCLibrary
+          Set-GitHubConfiguration -SessionOnly -DefaultRepositoryName winshib-exampleapp
+          $secureString = (&quot;$&quot; | ConvertTo-SecureString -AsPlainText -Force)
+          $cred = New-Object System.Management.Automation.PSCredential &quot;username is ignored&quot;, $secureString
+          Set-GitHubAuthentication -Credential $cred -SessionOnly
+          $secureString = $null # clear this out now that it's no longer needed
+          $cred = $null # clear this out now that it's no longer needed
+          $tag = &quot;$&quot;.Substring(10)
+          Write-Output &quot;::debug::$tag&quot;
+          $release_id = (Get-GitHubRelease -Tag $tag).ID
+          New-GitHubReleaseAsset -Release $release_id -Path $\exampleapp.zip
+</code></pre>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-top my-3 pt-3">
+  <div class="container" role="contentinfo">
+    <img src="/images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+      height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+  </div>
+</footer>
+
+</html>

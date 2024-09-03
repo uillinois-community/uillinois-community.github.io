@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Illinois Community GitHub Course Use - University of Illinois GitHub Service Community Portal</title>
+  <meta name="description" content="Community-supported documentation for the University of Illinois GitHub service." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/css/illinois-system.css" />
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+<body>
+
+<!-- TODO: Convert this back into a Breadcrumb solution with aria active for current page -->
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">University of Illinois GitHub Service Community Portal</a></li>
+  </ol>
+</nav>
+  <header class="blog-header my-3 pb-3 border-bottom">
+    <div class="container">
+      <h1>Illinois Community GitHub Course Use</h1>
+    </div>
+  </header>
+
+<!-- Main Content -->
+<main class="container content" role="main">
+<p><a href="..">Back to Resources</a></p>
+<p>The Illinois GitHub service is vetted for course use. You can put course data into GitHub.com as long as it's protected and secured as you would expect student private data must be.</p>
+<p>The https://github.com/uillinois-community/gitForCourses repository has information about various methods courses could use to leverage git for assignment distribution, collection, and grading.</p>
+<p><strong>Using git and GitHub in your courses is not trivial.</strong> We highly suggest that if you choose to use git in your course, you accept that &quot;learning how to use git and github.com&quot; must be a learning objective of the course. That includes teaching and supporting your students to use that environment.</p>
+<ul>
+<li>If you are only looking for a platform to allow homework upload and grading, GitHub might not be the best framework for you. <a href="https://canvas.illinois.edu/">Canvas</a>, <a href="https://gradescope.com">Gradescope</a>, or <a href="https://www.prairielearn.org/">PrairieLearn</a> may be better platform choices if you don't want the complexity of teaching students git concepts like commits, merging, and push/pulls.</li>
+</ul>
+<h2>Illinois Repo Creator Tool</h2>
+<p>Many Illinois courses are using an in-house developed web app to allow students to create their own repositories in a course organization. We call this the &quot;repo creator tool&quot; and it's been ported from github-dev.cs.illinois.edu to also work with github.com</p>
+<p>See the <a href="https://wiki.illinois.edu/wiki/display/CSID/GitHub+repo+creator+tool">GitHub repo creator tool page in the CSID wiki</a> for more info about this app.</p>
+<ul>
+<li>The Illini wiki may require an active VPN session to access (as of 6/10/22) and requires an Illinois login (but is available to all)</li>
+</ul>
+<h2>Things that are different about GitHub versus the previous github-dev.cs.illinois.edu server</h2>
+<ul>
+<li>GitHub uses <code>main</code> as the primary branch name for new repositories, versus the older <code>master</code> branch</li>
+<li><strong>Organizations should be re-used across semesters</strong> as much as possible. This is different than github-dev.cs where each semester courses created a new organization. Because organization creation takes more effort with the Illinois github.com, our recommendation is to use a single organization per course (or shared between courses, like with the <code>illinois-cs-coursework</code> org)</li>
+<li>Especially when using multiple semesters worth of repositories in the same organization, we recommend using <a href="https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams">GitHub Teams</a> to organize access across different people and collections of repositories.</li>
+</ul>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-top my-3 pt-3">
+  <div class="container" role="contentinfo">
+    <img src="/images/Illinois-System-Logo__Horizontal-Blue.svg" class="d-block mx-auto mw-100 w-md-50" width="555"
+      height="40" alt="University of Illinois System: Illinois, UIC, UIS" loading="lazy">
+  </div>
+</footer>
+
+</html>
