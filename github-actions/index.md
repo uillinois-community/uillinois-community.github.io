@@ -18,10 +18,12 @@ The common reasons to run a self-hosted runner is that you might want to use Git
 + Certain steps may not be directly possible as actions, but you may be able to  use a workflow step to run a web tool like curl to call the [GitHub API][18]. If doing this, use a GitHub secret to store the Personal Access Token being used.
 + Adding the trigger "workflow_dispatch" allows you to run the job on demand from the web interface. Useful when testing.
 + Using Windows?  There's more tips on the [Windows-specific page](/github-actions/windows/).
++ [Search for 'GitHub Actions' on the University of Illinois Knowledge Base][19] 
 
 [15]: https://docs.github.com/en/actions/managing-workflow-runs/enabling-debug-logging
 [16]: https://github.com/marketplace?category=&query=&type=actions&verification=
 [18]: https://docs.github.com/en/rest
+[19]: https://answers.illinois.edu/search.php?q=github+actions
 
 ## Popular Actions
 
